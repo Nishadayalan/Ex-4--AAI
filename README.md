@@ -1,6 +1,7 @@
-
+<H3>ENTER YOUR NAME: NISHA D</H3>
+<H3>ENTER YOUR REGISTER NO.: 212223230143</H3>
 <H3>EX. NO.4</H3>
-<H1 ALIGN =CENTER> Implementation of Hidden Markov Model</H1>
+<H3>DATE: 19-09-24</H3>
 
 ## Aim: 
 Construct a Python code to find the sequence of hidden states by the known sequence of observances using Hidden Markov Model. Consider two hidden states Sunny and Rainy with observable states,happy and sad.
@@ -19,11 +20,10 @@ Step 8:Calculate the probability of the observed sequence by summing the last ro
 Step 9:Find the most likely sequence of hidden states by selecting the hidden state with the highest probability at each time step based on the alpha matrix.<br>
 
 ## Program:
-```
-Develpoed By:NISHA D
-Reg.NO      :212223230143
-```
-```
+
+Developed by: NISHA D
+Register No.: 212223230143
+
 import numpy as np
 #Define the transition matrix
 transition_matrix =np.array([[0.7,0.3],[0.4,0.6]])
@@ -33,18 +33,15 @@ emission_matrix =np.array ([[0.1,0.9],[0.8,0.2]])
 initial_probabilities = np.array([0.5,0.5])
 #Define the observed sequence
 observed_sequence = np.array([1,1,1,0,0,1])
-```
-```
 # Initialize the alpha matrix
 alpha = np. zeros ((len(observed_sequence) ,len (initial_probabilities) ) )
 # Calculate the first row of the alpha matrix
 alpha [0,:] = initial_probabilities *emission_matrix[:, observed_sequence [0]]
-```
-```
 # Loop through the rest of the observed sequence and calculate the rest of the alpha matrix
 for t in range (1, len (observed_sequence) ) :
   for j in range (len (initial_probabilities) ) :
     alpha[t,j]= emission_matrix [j,observed_sequence[t]] *np.sum(alpha[t-1:]*transition_matrix[:, j])
+
 # Calculate the probability of the observed sequence
 probability = np.sum(alpha[-1,:])
 # Print the probability of the observed sequence
@@ -56,16 +53,12 @@ for t in range (len (observed_sequence)):
     most_likely_sequence.append ("sunny")
   else:
     most_likely_sequence.append ("rainy")
-```
-```
 print("The most likely sequence of Weather States is",most_likely_sequence)
-```
+
 
 ## Output:
-![EX-04](https://github.com/user-attachments/assets/9b22e683-4926-48d9-84a4-a72c4594b181)
-![EX-04](https://github.com/user-attachments/assets/1a95a878-1d73-4e62-8264-10d7d54019d5)
 
+![366778109-dfcabb42-1c04-48c7-8824-6d7a00e091e8](https://github.com/user-attachments/assets/d671e78c-96c5-4a67-b2b9-cea9d89b3e7a)
 
 ## Result:
-Thus Hidden Markov Model is implemented using python.
-
+Thus Hidden Markov Model is implemented using python.
